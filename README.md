@@ -2,6 +2,8 @@
 
 Deployment-ready Django project template.
 
+![Screenshot](https://i.imgur.com/uJQBcrY.png)
+
 ## Usage
 1. Click `Use this template` and name the project
 1. Clone to local machine
@@ -17,5 +19,3 @@ Deployment-ready Django project template.
 1. Bootstrap
 1. Search
 1. Heroku ready
-
-![Screenshot](https://i.imgur.com/uJQBcrY.png)
