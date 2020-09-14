@@ -12,7 +12,9 @@ Deployment-ready Django project template.
 1. `pip install -r requirements.txt`
 
 ## Deploy
-1. `heroku create [name]`
+1. `python manage.py generate_secret_key`
+1. `heroku create [optional name]`
+1. `heroku config:set SECRET_KEY=[your secret ket here]`
 1. `git push heroku master`
 
 ## Features
