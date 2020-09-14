@@ -12,6 +12,10 @@ DEBUG = os.environ.get('DEBUG', 0)
 
 ALLOWED_HOSTS = [] if DEBUG else ['*']
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
 INSTALLED_APPS = [
     # Django
     'django.contrib.admin',
@@ -22,6 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Third Party
+    'debug_toolbar',
+
     # Project
     'index.apps.IndexConfig',
 ]
@@ -33,6 +39,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
