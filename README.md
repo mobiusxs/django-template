@@ -2,7 +2,8 @@
 
 Deployment-ready Django project template.
 
-![Screenshot](https://i.imgur.com/uJQBcrY.png)
+![Screenshot](https://github.com/mobiusxs/django-template/blob/master/screenshot.png?raw=true)
+
 
 ## Usage
 1. Click `Use this template` and name the project
