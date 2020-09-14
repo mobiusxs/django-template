@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     # Third Party
     'debug_toolbar',
+    'django_extensions',
 
     # Project
     'index.apps.IndexConfig',
