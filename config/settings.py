@@ -64,7 +64,7 @@ DATABASES = {
 
 DATABASE_URL = os.environ.get('DATABASE_URL', False)
 if DATABASE_URL:
-    DATABASES['default'] = dj_database_url.parse(url=DATABASE_URL, engine='postgresql', conn_max_age=600)
+    DATABASES['default'] = dj_database_url.parse(url=DATABASE_URL, conn_max_age=600)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
