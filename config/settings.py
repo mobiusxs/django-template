@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -59,6 +61,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+DATABASE_URL = os.environ.get('DATABASE_URL', False)
+if DATABASE_URL:
+    DATABASES['default'] = dj_database_url.parse(url=DATABASE_URL, engine='postgresql', conn_max_age=600)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
