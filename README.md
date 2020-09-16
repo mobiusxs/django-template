@@ -2,6 +2,14 @@
 
 Deployment-ready Django project template.
 
+## Features
+1. Heroku ready
+1. Docker ready
+1. Bootstrap 4
+1. Django-Debug-Toolbar
+1. Django-Extensions
+1. Wiring for Search
+
 ![Screenshot](https://i.imgur.com/NlgQgYR.png)
 
 ## Usage
@@ -17,7 +25,7 @@ Deployment-ready Django project template.
     pip install -r requirements.txt
     ```
 
-## Deploy
+## Heroku
 1. Generate a secret key before deploying
     ```
     python manage.py generate_secret_key
@@ -28,7 +36,7 @@ Deployment-ready Django project template.
     ```
 1. Set your secret key before pushing
     ```
-    heroku config:set SECRET_KEY=[your secret ket here]
+    heroku config:set SECRET_KEY="your_secret_key"
     ```
 1. Deploy
     ```
@@ -40,9 +48,9 @@ Deployment-ready Django project template.
     python manage.py createsuperuser
     ```
 
-## Features
-1. Django-Debug-Toolbar
-1. Django-Extensions
-1. Bootstrap 4
-1. Wiring for Search
-1. Heroku ready
+## Docker
+1. Build containers and start container
+    ```
+    docker-compose build
+    docker-compose up
+    ```
