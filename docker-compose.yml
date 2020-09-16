@@ -4,13 +4,17 @@ services:
     image: postgres
     restart: always
     environment:
-      - POSTGRES_DB=database
-      - POSTGRES_USER=username
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
-      # - project_db:/var/lib/postgresql/data
+      - ./postgres-data:/var/lib/postgresql/data
   web:
     build: .
+    env_file: .env
+    environment:
+      - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    command: gunicorn config.wsgi:application --bind :8000
     ports:
       - "8000:8000"
     depends_on:
