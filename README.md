@@ -24,6 +24,8 @@ Deployment-ready Django project template.
     ```
     pip install -r requirements.txt
     ```
+1. Complete `.env`
+1. Enable DEBUG via environment variable `DEBUG = 1`
 
 ## Heroku
 1. Generate a secret key before deploying
@@ -53,4 +55,8 @@ Deployment-ready Django project template.
     ```
     docker-compose build
     docker-compose up
+    ```
+1. Clean files
+    ```
+    docker system prune -a
     ```
