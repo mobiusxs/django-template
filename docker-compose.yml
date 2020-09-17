@@ -11,9 +11,6 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
   web:
     build: .
-    env_file: .env
-    environment:
-      - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     command: gunicorn config.wsgi:application --bind :8000
     ports:
       - "8000:8000"
