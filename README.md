@@ -24,9 +24,8 @@ Deployment-ready Django project template.
     ```
     pip install -r requirements.txt
     ```
-1. Create `.env`
 1. Uses production settings by default. To change:
-    1. Set environment variable
+    1. Set environment variable; or
         ```
         DJANGO_SETTINGS_MODULE=config.settings.development
         DJANGO_SETTINGS_MODULE=config.settings.testing
@@ -38,10 +37,6 @@ Deployment-ready Django project template.
         ```
 
 ## Heroku
-1. Generate a secret key before deploying
-    ```
-    python manage.py generate_secret_key
-    ```
 1. Create a Heroku dyno
     ```
     heroku create [optional name]
@@ -61,15 +56,31 @@ Deployment-ready Django project template.
     ```
 
 ## Docker
+1. Create `.env`
+    ```
+    ######## CHANGE #########
+    DATABASE_USER=user
+    DATABASE_PASS=pass
+    DATABASE_NAME=database
+    SECRET_KEY=!!!SET_SECRET_KEY!!!
+    ALLOWED_HOSTS=localhost 0.0.0.0 :: 127.0.0.1 YOUR_DOMAIN_NAME.com
+   
+    ### OPTIONALLY CHANGE ###
+    ADMIN_URL=admin/
+
+    ##### DO NOT CHANGE #####
+    DATABASE_HOST=db
+    DATABASE_PORT=5432
+    ```
 1. Build and start containers
     ```
     docker-compose up --build
     ```
-1. Get container name and use bash to migrate tables
+1. Migrate & createsuperuser
     ```
     docker ps
-    docker exec -it <container name> /bin/bash
-    python manage.py migrate
+    docker exec -it <container name> python manage.py migrate
+    docker exec -it <container name> python manage.py createsuperuser
     ```
 1. Docker common
     ```
