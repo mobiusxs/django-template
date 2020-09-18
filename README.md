@@ -24,6 +24,18 @@ Deployment-ready Django project template.
     ```
     pip install -r requirements.txt
     ```
+1. Create `.env`
+1. Uses production settings by default. To change:
+    1. Set environment variable
+        ```
+        DJANGO_SETTINGS_MODULE=config.settings.development
+        DJANGO_SETTINGS_MODULE=config.settings.testing
+        ```
+    2. Specify at runtime
+        ```
+        python manage.py runserver --settings config.settings.development
+        python manage.py runserver --settings config.settings.testing
+        ```
 
 ## Heroku
 1. Generate a secret key before deploying
@@ -49,8 +61,18 @@ Deployment-ready Django project template.
     ```
 
 ## Docker
-1. Build containers and start container
+1. Build and start containers
     ```
-    docker-compose build
-    docker-compose up
+    docker-compose up --build
+    ```
+1. Get container name and use bash to migrate tables
+    ```
+    docker ps
+    docker exec -it <container name> /bin/bash
+    python manage.py migrate
+    ```
+1. Docker common
+    ```
+    # Delete all Docker files
+    docker system prune -a -f --volumes
     ```
