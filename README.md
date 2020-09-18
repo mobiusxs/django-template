@@ -37,6 +37,15 @@ Deployment-ready Django project template.
         ```
 
 ## Heroku
+1. Create `.env`
+    ```
+    ## CHANGE ##
+    SECRET_KEY=!!!SET_SECRET_KEY!!!
+    ALLOWED_HOSTS=YOUR_DOMAIN_NAME.com
+   
+    ## OPTIONAL ##
+    ADMIN_URL=admin/
+    ```
 1. Create a Heroku dyno
     ```
     heroku create [optional name]
@@ -58,19 +67,15 @@ Deployment-ready Django project template.
 ## Docker
 1. Create `.env`
     ```
-    ######## CHANGE #########
+    ## CHANGE ##
     DATABASE_USER=user
     DATABASE_PASS=pass
     DATABASE_NAME=database
     SECRET_KEY=!!!SET_SECRET_KEY!!!
     ALLOWED_HOSTS=localhost 0.0.0.0 :: 127.0.0.1 YOUR_DOMAIN_NAME.com
    
-    ### OPTIONALLY CHANGE ###
+    ## OPTIONAL ##
     ADMIN_URL=admin/
-
-    ##### DO NOT CHANGE #####
-    DATABASE_HOST=db
-    DATABASE_PORT=5432
     ```
 1. Build and start containers
     ```
