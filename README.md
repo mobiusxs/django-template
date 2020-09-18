@@ -76,6 +76,10 @@ Deployment-ready Django project template.
    
     ## OPTIONAL ##
     ADMIN_URL=admin/
+   
+    ## REQUIRED ##
+    DATABASE_HOST=db
+    DATABASE_PORT=5432
     ```
 1. Build and start containers
     ```
